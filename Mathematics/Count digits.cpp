@@ -1,8 +1,8 @@
-int countDigits(int n)
+int countDigits(int x)
 {
-    if (n == 0)
+    if (x == 0)
     {
         return 0;
     }
-    return 1 + countDigits(n / 10); // or alternatively *return floor(log10(n) + 1);*
+    return 1 + countDigits(x / 10); // or alternatively *return floor(log10(n) + 1);*
 }
