@@ -8,3 +8,6 @@ int lcm(int a, int b)
 {
     return (a * b) / gcd(a, b);
 }
+
+//time complexity == > O(log(min(a,b)))
+//Auxiliary space complexity == > O(1)

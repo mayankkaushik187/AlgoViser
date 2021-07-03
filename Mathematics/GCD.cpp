@@ -26,5 +26,5 @@ int gcd(int a, int b)
     }
     return gcd(b, a % b);
 }
-//time complexity == > Theta(log(max(a,b)))
-//Auxiliary space complexity == > Theta(1)
+//time complexity == > O(log(max(a,b)))
+//Auxiliary space complexity == > O(1)
