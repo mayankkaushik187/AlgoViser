@@ -1,4 +1,6 @@
 //Naive approach
+#include <bits/stdc++.h>
+#include <algorithm>
 
 int gcd(int a, int b)
 {
