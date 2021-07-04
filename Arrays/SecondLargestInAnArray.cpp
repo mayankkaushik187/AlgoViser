@@ -37,4 +37,32 @@ int secondLargest(vector<int> &v, int n)
         }
     }
     return res;
+} // O(n)
+//=================================X==================================
+// Efficient Approach
+
+int secondLargest(vector<int> &v, int n) //O(n)
+{
+    int res = -1;
+    int largest = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (v[i] > v[largest])
+        {
+            res = largest;
+            largest = i;
+        }
+        else if (v[i] < v[largest])
+        {
+            if (res == -1)
+            {
+                res = i;
+            }
+            else if (v[i] > v[res])
+            {
+                res = i;
+            }
+        }
+    }
+    return res;
 }
