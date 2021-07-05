@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-void leader(vector<int> &v, int n)
+void leader1(vector<int> &v, int n) //O(N^2) Approach
 {
     for (int i = 0; i < n; i++)
     {
@@ -23,12 +23,36 @@ void leader(vector<int> &v, int n)
     }
 }
 
+void leader2(vector<int> &v, int n) //O(N)Time And O(N) Space Approach
+{
+    vector<int> res;
+    res.push_back(v[n - 1]); // 1 2 3 4 2 1 2 3
+    int curLdr = v[n - 1];
+
+    for (int i = n - 2; i >= 0; i--)
+    {
+        if (v[i] > curLdr)
+        {
+            curLdr = v[i];
+            res.push_back(curLdr);
+        }
+        else
+        {
+            continue;
+        }
+    }
+    for (int i = n - 1; i >= 0; i--)
+    {
+        cout << res[i] << " ";
+    }
+}
+
 int main()
 {
-    vector<int> v = {2, 3, 4, 5, 5, 6, 7, 1};
+    vector<int> v = {1, 2, 3, 4, 2, 1, 2, 3};
     int n = v.size();
 
-    leader(v, n);
+    leader2(v, n);
     // for (int e : v)
     // {
     //     cout << e << " ";
