@@ -66,3 +66,5 @@ int secondLargest(vector<int> &v, int n) //O(n)
     }
     return res;
 }
+
+//10 4 7 6 3 6
