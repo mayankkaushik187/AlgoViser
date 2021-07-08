@@ -30,10 +30,10 @@ int findMajorityElement(vector<int> &v, int n)
         {
             count++;
         }
-        if (count > n / 2)
-        {
-            return res;
-        }
+    }
+    if (count > n / 2)
+    {
+        return res;
     }
     return -1;
 }
