@@ -14,7 +14,7 @@ int firstOcc(vector<int> &a, int low, int high, int key)
     }
     else if (a[mid] < key)
     {
-        return firstOcc(a, mid + 1, low, key);
+        return firstOcc(a, mid + 1, high, key);
     }
     //First occurrence code
     else
@@ -39,7 +39,7 @@ int main()
     int low = 0;
     int high = n - 1;
     int ans = firstOcc(arr, low, high, key);
-    cout << ans + 1; //position not index
+    cout << ans;
 
     return 0;
 }

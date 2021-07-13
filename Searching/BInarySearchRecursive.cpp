@@ -29,7 +29,7 @@ int main()
     int low = 0;
     int high = n - 1;
     int ans = bSearch(arr, low, high, key);
-    cout << ans + 1;
+    cout << ans;
 
     return 0;
 }

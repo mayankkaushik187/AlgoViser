@@ -29,7 +29,7 @@ int main()
     vector<int> arr = {10, 14, 24, 54, 124, 4532};
     int key = 24;
     int ans = binarySearch(arr, key);
-    cout << ans + 1;
+    cout << ans;
 
     return 0;
 }
