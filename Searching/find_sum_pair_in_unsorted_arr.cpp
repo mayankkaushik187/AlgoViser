@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void printPairs(int arr[], int arr_size, int sum)
+void printPairs(int arr[], int arr_size, int sum) //O(N^2) will be improved in hashmap section
 {
     for (int i = 0; i < arr_size - 1; i++)
     {
