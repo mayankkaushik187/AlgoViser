@@ -18,7 +18,7 @@ int count_ones(vector<int> &a, int n)
     return n - index;
 }
 
-int count_ones_bSearch(vector<int> &a, int n)
+int count_ones_bSearch(vector<int> &a, int n) // O(logN)
 {
     int low = 0;
     int high = n - 1;
