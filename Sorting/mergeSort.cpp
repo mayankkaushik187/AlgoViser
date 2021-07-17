@@ -47,3 +47,27 @@ void merge(int a[], int low, int mid, int high)
         k++;
     }
 }
+
+void mergeSort(int a[], int l, int r)
+{
+    if (r > l)
+    {
+        int mid = l + r >> 1;
+        mergeSort(a, l, mid);
+        mergeSort(a, mid + 1, r);
+        merge(a, l, mid, r);
+    }
+}
+
+int main()
+{
+    int arr[] = {6, 4, 1, 3, 5, 2, 1};
+    int l = 0;
+    int r = 6;
+    mergeSort(arr, l, r);
+    for (int e : arr)
+    {
+        cout << e << " ";
+    }
+    return 0;
+}
