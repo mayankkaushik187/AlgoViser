@@ -16,7 +16,7 @@ void rotateAnticlock(vector<vector<int>> v)
     {
         int low = 0;
         int high = n - 1;
-        while (low <= high)
+        while (low < high)
         {
             swap(v[low][i], v[high][i]);
             low++;
