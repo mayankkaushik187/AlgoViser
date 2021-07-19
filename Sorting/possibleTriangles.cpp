@@ -6,18 +6,21 @@ int findNumberOfTriangles(int arr[], int n)
     // code here
     sort(arr, arr + n);
     int count = 0;
-    for (int i = 0; i < n - 2; i++)
+    for (int i = n - 1; i >= 1; i--)
     {
-        int k = i + 2;
-        for (int j = i + 1; j < n - 1; j++)
+        int l = 0;
+        int r = i - 1;
+        while (l < r)
         {
-            while (k < n && arr[i] + arr[j] > arr[k])
+            if (arr[l] + arr[r] > arr[i])
             {
-                k++;
+                count += r - l;
+
+                r--;
             }
-            if (k > j)
+            else
             {
-                count += k - j - 1;
+                l++;
             }
         }
     }
