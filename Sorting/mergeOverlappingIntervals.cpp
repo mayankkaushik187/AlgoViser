@@ -36,6 +36,8 @@ void mergeIntervals(Interval arr[], int n)
     }
 }
 
+//O(N) time complexity solution we can also use vector of vectors to solve this problem instead of making a struct/class
+
 int main()
 {
     Interval arr[] = {{5, 10}, {3, 15}, {18, 30}, {2, 7}};
