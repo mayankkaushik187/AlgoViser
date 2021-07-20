@@ -18,6 +18,11 @@ int intersection(int arr1[], int m, int arr2[], int n)
         }
     }
 
+    for (auto e : s)
+    {
+        cout << e << " " << endl;
+    }
+
     return res;
 }
 //returns number of intersecting elements in both the arrays
