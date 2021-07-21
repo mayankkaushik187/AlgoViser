@@ -14,7 +14,7 @@ int solve(int arr[], int n, int sum)
         {
             return i + 1;
         }
-        if (m.find(preSum - sum) == m.end())
+        if (m.find(preSum) == m.end())
         {
             m.insert({preSum, i});
         }
