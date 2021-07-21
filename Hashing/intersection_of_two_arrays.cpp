@@ -20,7 +20,7 @@ int intersection(int arr1[], int m, int arr2[], int n)
 
     for (auto e : s)
     {
-        cout << e << " " << endl;
+        cout << e << " " << endl; //this prints.
     }
 
     return res;
