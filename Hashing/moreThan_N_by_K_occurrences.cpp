@@ -3,25 +3,16 @@ using namespace std;
 
 void printNByK(int arr[], int n, int k)
 {
-    sort(arr, arr + n);
-    int curr = 1;
-    for (int i = 1; i < n;)
+    unordered_map<int, int> freq;
+    for (int i = 0; i < n; i++)
     {
-        for (int j = i; j < n; j++)
+        freq[arr[i]]++;
+    }
+    for (auto x : freq)
+    {
+        if (x.second > (n / k))
         {
-            if (arr[j] == arr[j - 1])
-            {
-                curr++;
-            }
-            else
-            {
-                i = j;
-                break;
-            }
-            if (curr > (n / k))
-            {
-                cout << arr[j - 1] << " ";
-            }
+            cout << x.first << " ";
         }
     }
 }
