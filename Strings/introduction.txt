@@ -9,4 +9,11 @@ C++ ===>
 ========
 char : Has ASCII uses 8 bit to store characters.
        Supports wchar_t white characters.
- 
+
+
+Functions==> for C-style strings
+================
+
+strlen(str) == > returns the length of the string and searches for '\0' as and keeps incrementing count when we dont find it.
+strcmp(str1,str2)==> if str1 is smaller lexicographically then it will return negative value if equal then 0 and if greater than positive
+strcpy(str)
