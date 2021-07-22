@@ -1,0 +1,12 @@
+Strings ==> 
+
+1.--> Sequence of characters
+2.--> Small Set
+3.--> Contiguous integer values for 'a' to 'z' and 'A' to 'Z' in both ASCII and UTF-16 || a-> 97 , b->98 ,A->65
+================================================================================================================
+
+C++ ===>
+========
+char : Has ASCII uses 8 bit to store characters.
+       Supports wchar_t white characters.
+ 
