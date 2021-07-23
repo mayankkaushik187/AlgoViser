@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//find leftmost non repeating character
 const int CHAR = 256;
 int nonRep(string &str)
 {
