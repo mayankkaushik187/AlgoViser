@@ -4,7 +4,7 @@ using namespace std;
 const int CHAR = 256;
 int leftMost(string &str)
 {
-    int fIndex[CHAR] = {0};
+    int fIndex[CHAR];
     // for (int i = 0; i < str.length(); i++)
     // {
     //     count[str[i]]++;
