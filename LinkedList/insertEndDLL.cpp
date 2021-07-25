@@ -24,16 +24,22 @@ void printList(Node *head)
     }
 }
 
-Node *insertBeginDLL(Node *head, int x)
+Node *insertEndDLL(Node *head, int x)
 {
     Node *temp = new Node(x);
-    temp->next = head;
-    if (head != NULL)
+    if (head == NULL)
     {
-        head->prev = temp;
+        return temp;
     }
+    Node *curr = head;
+    while (curr->next != NULL)
+    {
+        curr = curr->next;
+    }
+    curr->next = temp;
+    temp->prev = curr;
 
-    return temp;
+    return head;
 }
 int main()
 {
@@ -44,7 +50,7 @@ int main()
     temp1->prev = head;
     temp1->next = temp2;
     temp2->prev = temp1;
-    head = insertBeginDLL(head, 40);
+    head = insertEndDLL(head, 40);
     printList(head);
     return 0;
 }
