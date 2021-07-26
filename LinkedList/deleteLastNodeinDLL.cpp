@@ -27,8 +27,13 @@ void printlist(Node *head)
 
 Node *delLast(Node *head)
 {
-    if (head == NULL || head->next == NULL)
+    if (head == NULL)
     {
+        return NULL;
+    }
+    if (head->next == NULL)
+    {
+        delete head;
         return NULL;
     }
     Node *curr = head;
