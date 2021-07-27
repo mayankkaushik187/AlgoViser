@@ -36,6 +36,17 @@ Node *reverseList(Node *head)
     return Revhead;
 }
 
+Node *recReverseFirstPartList(Node *head, Node *prev)
+{
+    if (head == NULL)
+    {
+        return prev;
+    }
+    Node *next = head->next;
+    head->next = prev;
+    return recReverseFirstPartList(next, head);
+}
+
 int main()
 {
     Node *head = new Node(10);
