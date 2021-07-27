@@ -25,14 +25,12 @@ void printlist(Node *head)
 
 Node *reverseInK(Node *head, int k)
 {
-    Node *curr = head;
-    int count = 0;
-    Node *prevFirst = NULL;
+    Node *curr = head, *prevFirst = NULL;
     bool isFirstPass = true;
     while (curr != NULL)
     {
-        Node *first = curr;
-        Node *prev = NULL;
+        Node *first = curr, *prev = NULL;
+        int count = 0;
         while (curr != NULL && count < k)
         {
             Node *next = curr->next;
@@ -49,8 +47,8 @@ Node *reverseInK(Node *head, int k)
         else
         {
             prevFirst->next = prev;
-            prevFirst = first;
         }
+        prevFirst = first;
     }
     return head;
 }
