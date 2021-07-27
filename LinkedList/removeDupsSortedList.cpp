@@ -30,7 +30,7 @@ Node *remDups(Node *head)
         return head;
     }
     Node *curr = head;
-    while (curr->next != NULL)
+    while (curr != NULL && curr->next != NULL)
     {
         Node *next = curr->next;
         if (curr->data == curr->next->data)
