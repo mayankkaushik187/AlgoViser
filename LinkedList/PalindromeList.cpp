@@ -23,7 +23,7 @@ Node *reverseList(Node *head)
     return rest_head;
 }
 
-bool isPalindrome(Node *head)
+bool isPalindrome(Node *head) // find the mid element and the rev the latter part of the list and compare the first node of the first part of the list to the first node of the second part of the list.
 {
     if (head == NULL)
         return true;
