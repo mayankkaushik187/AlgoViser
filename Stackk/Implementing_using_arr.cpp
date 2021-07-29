@@ -7,10 +7,10 @@ struct Stack
 {
     int cap;
     int top;
-    int arr[];
+    int *arr;
     Stack(int cap)
     {
-        int arr[cap];
+        arr = new int[cap];
         top = -1;
     }
     void push(int x)
@@ -42,10 +42,10 @@ struct myStack
 {
     int cap;
     int top;
-    int arr[];
+    int *arr;
     myStack(int cap)
     {
-        int arr[cap];
+        arr = new int[cap];
         top = -1;
     }
     void push(int x)
