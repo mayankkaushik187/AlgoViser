@@ -37,7 +37,7 @@ struct Stack
         return (top == -1);
     }
 };
-
+//This stack handles the above mentioned cases by throwing exceptions.
 struct myStack
 {
     int cap;
