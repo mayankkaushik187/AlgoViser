@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//hashmaps too but that would give unneccessary overhead.Here,
+//TC == O(n);
+//AS == O(h)
 struct Node
 {
     int key;
@@ -22,8 +24,8 @@ int height(Node *root)
     }
     int lh = height(root->left);
     int rh = height(root->right);
-    res = max(1 + lh, rh, res); //result is diameter;
-    return 1 + max(lh, rh);     //returns height
+    res = max(1 + lh + rh, res); //result is diameter;
+    return 1 + max(lh, rh);      //returns height
 }
 
 int main()
