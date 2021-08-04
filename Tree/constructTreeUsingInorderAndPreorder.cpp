@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//TC - O(n^2) but can be reduced to O(N) using hashing for lookups for the root->key in the inorder array.
 struct Node
 {
     int key;
