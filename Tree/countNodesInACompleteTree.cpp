@@ -18,7 +18,7 @@ int countNode(Node *root)
     if (root == NULL)
         return 0;
 
-    int lh, rh;
+    int lh = 0, rh = 0;
     Node *curr = root;
     while (curr != NULL)
     {
