@@ -13,18 +13,18 @@ struct Node
     }
 };
 
-void vTraversal(Node *root)
+void topView(Node *root)
 {
-    map<int, vector<int>> mp;
+    map<int, int> mp;
     queue<pair<Node *, int>> q;
-
     q.push({root, 0});
+
     while (!q.empty())
     {
         Node *curr = q.front().first;
         int hd = q.front().second;
-        mp[hd].push_back(curr->key);
-
+        if (mp.find(hd) == mp.end())
+            mp[hd] = curr->key;
         q.pop();
         if (curr->left)
         {
@@ -35,14 +35,9 @@ void vTraversal(Node *root)
             q.push({curr->right, hd + 1});
         }
     }
-
     for (auto x : mp)
     {
-        for (int y : x.second)
-        {
-            cout << y << " ";
-        }
-        cout << endl;
+        cout << x.second << " ";
     }
 }
 
@@ -55,7 +50,7 @@ int main()
     root->left->left = new Node(40);
     root->left->right = new Node(50);
 
-    vTraversal(root);
+    topView(root);
 
     return 0;
 }
