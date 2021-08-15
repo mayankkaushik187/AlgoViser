@@ -28,7 +28,9 @@ void fixBST(Node *root)
 {
     if (root == NULL)
         return;
-    fixBST(root->left);
+    fixBST(root->left); //recursive call for left subtree
+
+    //small work or computation which we need to do for the root
     if (prevv != NULL && root->key < prevv->key)
     {
         if (first == NULL)
@@ -36,7 +38,7 @@ void fixBST(Node *root)
         second = root;
     }
     prevv = root;
-
+    //recursive call for right subtree
     fixBST(root->right);
 }
 
