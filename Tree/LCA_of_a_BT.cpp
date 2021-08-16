@@ -28,7 +28,7 @@ Node *lca(Node *root, int n1, int n2)
     {
         return root;
     }
-    if (lca != NULL)
+    if (lca1 != NULL)
     {
         return lca1;
     }
