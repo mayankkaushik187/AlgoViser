@@ -22,7 +22,7 @@ void printlist(Node *head)
     }
     cout << endl;
 }
-
+//Remove duplioates from a linked list
 Node *remDups(Node *head)
 {
     if (head == NULL || head->next == NULL)
