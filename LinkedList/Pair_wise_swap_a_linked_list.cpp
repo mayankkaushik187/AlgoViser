@@ -15,4 +15,4 @@ struct Node *pairwise_swap(struct Node *head)
     }
 
     return head;
-}
+} //just the function is available.
