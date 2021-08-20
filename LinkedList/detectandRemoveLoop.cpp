@@ -35,18 +35,34 @@ bool detectNremoveLoop(Node *head)
             break;
         }
     }
-    if (slow_p != fast_p)
+    if (slow_p != fast_p) //checking if there was a loop at the first place
     {
         return;
     } //till here the detection works
 
-    slow_p = head;
-    while (slow_p->next != fast_p->next)
+    if (slow_p == head) // if loop is with the first node
     {
-        slow_p = slow_p->next;
-        fast_p = fast_p->next;
+        while (slow_p->next != head)
+        {
+            slow_p = slow_p->next;
+        }
+        slow_p->next = NULL;
     }
-    fast_p->next = NULL;
+    if (slow_p == fast_p) // otherwise
+    {
+        slow_p = head;
+        while (slow_p->next != fast_p->next)
+        {
+            if (slow_p == fast_p->next)
+            {
+                fast_p->next == NULL;
+            }
+            slow_p = slow_p->next;
+            fast_p = fast_p->next;
+        }
+
+        fast_p->next = NULL;
+    }
     //this removes the loop
 }
 
