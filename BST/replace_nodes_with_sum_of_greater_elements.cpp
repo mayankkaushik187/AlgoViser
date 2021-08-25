@@ -17,7 +17,7 @@ public:
 };
 
 static int sum = 0; // bad practice  should not use global vars and should be passed as an argument.
-
+//the whole idea is traverse in reverse in order in the bst and update the sum with the value of the root->data.
 void replaceWithLargerNodesSum(BinaryTreeNode<int> *root)
 {
     // Write your code here
