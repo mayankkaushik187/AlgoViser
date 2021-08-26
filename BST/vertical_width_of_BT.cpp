@@ -16,8 +16,8 @@ void help(Node *root, int &minm, int &maxm, int hd)
     }
     help(root->left, minm, maxm, hd - 1);
 
-    maxm = max(maxm, curr);
-    minm = min(minm, curr);
+    maxm = max(maxm, hd);
+    minm = min(minm, hd);
 
     help(root->right, minm, maxm, hd + 1);
 }
