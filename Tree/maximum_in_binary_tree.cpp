@@ -12,7 +12,7 @@ struct Node
         left = right = NULL;
     }
 };
-
+//max in a BT
 int maxi(Node *root)
 {
     if (root == NULL)
