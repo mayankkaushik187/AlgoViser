@@ -60,10 +60,10 @@ int main()
 
     for (int i = 0; i < e; i++)
     {
-        int f, s;
+        int f, s; //f --> first vertex and s --> second vertex
         cin >> f >> s;
-        graph[f][s] = 1;
-        graph[s][f] = 1;
+        graph[f][s] = 1; //this means there is an edge between f and s
+        graph[s][f] = 1; //this means there is an edge between s and f which is pretty obvious
     }
 
     bfs_disconnected(graph, n);
