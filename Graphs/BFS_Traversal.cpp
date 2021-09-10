@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//this code works for both connected and disconnected graphs
 void BFS(int **graph, int n, int sv, int *visited)
 {
     queue<int> que;
