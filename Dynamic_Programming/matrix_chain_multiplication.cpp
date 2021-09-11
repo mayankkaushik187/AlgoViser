@@ -42,6 +42,21 @@ int matrixChainMultiplication(int *arr, int n)
     return dp[0][n - 1];
 }
 
+int matrixChainRecur(int arr[], int i, int j)
+{
+    if (i + 1 == j)
+    {
+        return 0;
+    }
+    int res = 1e9;
+    for (int k = i + 1; k < j; k++)
+    {
+        res = min(res, matrixChainRecur(arr, i, k) + matrixChainRecur(arr, k, j) + arr[i] * arr[k] * arr[j]);
+    }
+
+    return res;
+}
+
 int main()
 {
     int n;
@@ -54,6 +69,7 @@ int main()
     }
 
     cout << matrixChainMultiplication(arr, n);
+    cout << matrixChainRecur(arr, 0, n - 1);
 
     delete[] arr;
 }
