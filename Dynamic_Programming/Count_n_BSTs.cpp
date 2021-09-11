@@ -13,7 +13,7 @@ int count_n_bsts(int n)
 
         res += lans * rans;
     }
-
+    
     return res;
 }
 
