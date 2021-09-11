@@ -20,11 +20,22 @@ int count_n_bsts(int n)
 int count_n_bsts_dp(int n)
 {
     vector<int> dp(n + 1, 0);
+    dp[0] = dp[1] = 1;
+
+    for (int i = 2; i <= n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            dp[i] += dp[j] * dp[i - j - 1]; // this is basically saying that dp[n] += dp[i-1]*dp[n-i] this recurrence can be related to our naive recursive approach
+        }
+    }
+
+    return dp[n];
 }
 
 int main()
 {
-    int n = 4;
+    int n = 6;
     cout << count_n_bsts(n);
     return 0;
 }
