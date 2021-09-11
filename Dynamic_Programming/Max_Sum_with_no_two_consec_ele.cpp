@@ -33,6 +33,26 @@ int maxSum_dp(int arr[], int n) // Linear Complexity both for time and space
     return dp[n];
 }
 
+int maxSum_dp2(int arr[], int n)
+{
+
+    if (n == 1)
+    {
+        return arr[0];
+    }
+    int prev_prev = arr[0];
+    int prev = max(arr[0], arr[1]);
+    int res = prev;
+    for (int i = 3; i <= n; i++)
+    {
+        res = max(prev, prev_prev + arr[i - 1]);
+        prev_prev = prev;
+        prev = res;
+    }
+
+    return res;
+}
+
 int main()
 {
     int n = 5;
