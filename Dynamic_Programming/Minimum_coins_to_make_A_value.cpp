@@ -24,7 +24,7 @@ int minCoins(int coins[], int n, int val)
 int main()
 {
 
-    int arr[] = {3, 4, 1}, val = 5, n = 3;
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, val = 149, n = 11;
 
     cout << minCoins(arr, n, val);
 }
