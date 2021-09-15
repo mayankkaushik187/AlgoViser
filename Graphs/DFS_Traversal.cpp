@@ -13,16 +13,22 @@ void DFSRec(vector<int> adj[], int s, bool visited[])
     }
 }
 
-void DFS(vector<int> adj[], int V, int s)
+int DFS(vector<int> adj[], int V, int s) //works for disconnected graphs and counts the no of connected components
 {
+    int count = 0;
     bool visited[V];
     for (int i = 0; i < V; i++)
         visited[i] = false;
     for (int i = 0; i < V; i++)
     {
         if (!visited[i])
+        {
             DFSRec(adj, i, visited);
+            count++;
+        }
     }
+
+    return count;
 }
 
 void addEdge(vector<int> adj[], int u, int v)
