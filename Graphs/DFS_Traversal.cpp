@@ -18,8 +18,11 @@ void DFS(vector<int> adj[], int V, int s)
     bool visited[V];
     for (int i = 0; i < V; i++)
         visited[i] = false;
-
-    DFSRec(adj, s, visited);
+    for (int i = 0; i < V; i++)
+    {
+        if (!visited[i])
+            DFSRec(adj, i, visited);
+    }
 }
 
 void addEdge(vector<int> adj[], int u, int v)
