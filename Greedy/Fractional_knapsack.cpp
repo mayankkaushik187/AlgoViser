@@ -1,7 +1,5 @@
-#include <iostream>
-#include <cmath>
+
 #include <bits/stdc++.h>
-#include <climits>
 using namespace std;
 
 bool myCmp(pair<int, int> a, pair<int, int> b)
