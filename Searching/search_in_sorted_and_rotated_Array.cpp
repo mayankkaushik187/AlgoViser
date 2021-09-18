@@ -11,7 +11,7 @@ int searchInRotatedSorted(vector<int> &a, int n, int key)
         int mid = low + high >> 1;
         if (a[mid] >= a[low])
         {
-            //so our elelment lies between low and current mid
+            //so our element lies between low and current mid
             if (a[mid] == key)
             {
                 return mid;
