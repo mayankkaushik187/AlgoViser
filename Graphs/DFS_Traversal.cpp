@@ -23,8 +23,8 @@ int DFS(vector<int> adj[], int V, int s) //works for disconnected graphs and cou
     {
         if (!visited[i])
         {
-            DFSRec(adj, i, visited);
             count++; //add this to count connected components
+            DFSRec(adj, i, visited);
         }
     }
 
