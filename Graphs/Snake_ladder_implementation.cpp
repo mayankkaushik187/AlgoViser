@@ -29,12 +29,12 @@ public:
             int front = q.front();
             q.pop();
 
-            for (auto e : adj[src])
+            for (auto e : adj[front])
             {
                 if (!visited[e])
                 {
                     q.push(e);
-                    dist[e] = dist[src] + 1;
+                    dist[e] = dist[front] + 1;
                     visited[e] = 1;
                 }
             }
