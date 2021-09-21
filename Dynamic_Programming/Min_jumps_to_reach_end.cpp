@@ -26,6 +26,27 @@ int minJumps(int arr[], int n)
     return dp[n - 1];
 }
 
+int minJumpsLinear(int nums[], int n)
+{
+    int level = 0;
+    int cur_begin = 0;
+    int cur_end = 0;
+    int next_end = 0;
+    while (cur_end < n - 1)
+    {
+        // search [cur_begin, cur_end]
+        for (int index = cur_begin; index <= cur_end; ++index)
+        {
+            next_end = max(next_end, index + nums[index]);
+        }
+        // move to next level.
+        ++level;
+        cur_begin = cur_end + 1;
+        cur_end = next_end;
+    }
+    return level;
+}
+
 int main()
 {
 
