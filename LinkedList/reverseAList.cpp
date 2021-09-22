@@ -25,6 +25,7 @@ void printlist(Node *head)
 
 Node *reverseList(Node *head)
 {
+    if(!head)return NULL;
     Node *prev = NULL;
     Node *curr = head;
     Node *next = curr->next;
