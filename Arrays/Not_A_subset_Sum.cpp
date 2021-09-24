@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+//GFG link--https://practice.geeksforgeeks.org/problems/smallest-number-subset1220/1#
 long long findSmallest(long long arr[], int n)
 {
     // code here
