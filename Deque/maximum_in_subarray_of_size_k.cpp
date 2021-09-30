@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <bits/stdc++.h>
+#include <algorithm>
 #include <climits>
 #include <deque>
 using namespace std;
