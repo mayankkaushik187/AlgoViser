@@ -62,6 +62,6 @@ void solve(int N, vector<int> maze[])
     }
     else
     {
-        print(N, sol);
+        print(sol, N);
     }
 }
