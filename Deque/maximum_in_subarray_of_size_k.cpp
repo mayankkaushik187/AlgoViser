@@ -1,8 +1,4 @@
-#include <iostream>
-#include <cmath>
-#include <algorithm>
-#include <climits>
-#include <deque>
+#include<bits/stdc++.h>
 using namespace std;
 
 void printMax(int arr[], int n, int k)
