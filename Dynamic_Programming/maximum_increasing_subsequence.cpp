@@ -8,7 +8,7 @@ int MSIS(int arr[], int n)
     for (int i = 0; i < n; i++)
     {
         dp[i] = arr[i];
-        for (int j = 0; j < i; i++)
+        for (int j = 0; j < i; j++)
         {
             if (arr[j] < arr[i])
             {

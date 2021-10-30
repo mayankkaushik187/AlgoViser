@@ -50,3 +50,35 @@ int main()
 
     cout << solve(edges, n);
 }
+bool ans;
+    void dfs(int node,vector&gt;&amp;v,vector&amp;vis){
+        vis[node] = 1;
+        
+        for(auto x : v[node]){
+            if(vis[x] != 0){
+                dfs(x,v,vis);
+            }else{
+                if(vis[x] == 1){
+                    ans = false;
+                }
+            }
+        }
+        vis[node] = 2;
+    }
+    
+    bool canFinish(vector&gt; prerequisites,int numCourses) {
+        vector vis(numCourses,0);
+        ans = true;
+        vector&gt; v(numCourses);
+        for(int i = 0 ; i &lt; prerequisites.size() ; i++){
+            v[prerequisites[i][0]].push_back(prerequisites[i][1]);
+        }
+        int n = numCourses;
+        for(int i = 0 ; i &lt; n ; i++){
+            if(vis[i] == 0){
+                dfs(i,v,vis);
+            }
+        }
+        
+        return ans;
+    }
