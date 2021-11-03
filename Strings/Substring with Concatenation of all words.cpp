@@ -1,6 +1,8 @@
 //Leetcode 30
 class Solution {
 public:
+    //TC - O(s.size()*words[i].size()*words.size()) = O(n*len) where n is s.size()
+    //SC - O(words.size())
     vector<int> findSubstring(string s, vector<string>& words) {
         unordered_map<string,int> count;
         for(auto x : words)count[x]++;
