@@ -1,44 +1,70 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define V 4
+#define nline "\n"
+#define ll long long
+#define lli long long int
 
-vector<int> djikstra(int graph[V][V], int src)
-{
+class Graph{
+	int V;
+	vector<pair<int,int>> *adj;
+public:
+	Graph(int V){
+		this->V = V;
+		adj = new vector<pair<int,int>>[V];
+	}
+	void addEdge(int x,int y,int w,bool undir = true){
+		adj[x].push_back({w,y});
+		if(undir)
+			adj[y].push_back({w,x});
+	}
 
-    vector<int> dist(V, INT_MAX);
-    dist[src] = 0;
-    vector<bool> fin(V, false);
+	int djikstras(int src,int dest){
+		//Data structures
+		//set, dist arr
+		vector<int> dist(V,INT_MAX);
+		set<pair<int,int>> s;
+		//insert the src to set
+		dist[src] = 0;
+		s.insert({0,src});
+		while(!s.empty()){
+			auto it = s.begin();
+			int node = it->second;
+			int distTillNow = it->first;
+			s.erase(it);//pop
+			for(auto nbr : adj[node]){
+				int nbrNode = nbr.second;
+				int currEdgeDist = nbr.first;
+				if(currEdgeDist + distTillNow < dist[nbrNode]){
+					auto f = s.find({dist[nbrNode],nbrNode});
 
-    for (int count = 0; count < V - 1; count++)
-    {
-        int u = -1;
+					if(f!=s.end()){
+						s.erase(f);
+					}
+					dist[nbrNode] = currEdgeDist + distTillNow;
+					s.insert({dist[nbrNode],nbrNode});
 
-        for (int i = 0; i < V; i++)
-            if (!fin[i] && (u == -1 || dist[i] < dist[u]))
-                u = i;
-        fin[u] = true;
+				}
+			}
 
-        for (int v = 0; v < V; v++)
+		}
+		return dist[dest];
+	}
+};
+int main(){
+// #ifdef ONLINE_JUDGE
+// 	freopen("input1.txt", "r" , stdin);
+// 	freopen("output1.txt" ,"w" , stdout);
+// #endif
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	Graph g(5);
+	g.addEdge(0,1,1);
+	g.addEdge(1,2,2);
+	g.addEdge(0,2,4);
+	g.addEdge(0,3,7);
+	g.addEdge(3,2,2);
+	g.addEdge(3,4,3);
 
-            if (graph[u][v] != 0 && fin[v] == false)
-                dist[v] = min(dist[v], dist[u] + graph[u][v]);
-    }
-    return dist;
-}
-
-int main()
-{
-    int graph[V][V] = {
-        {0, 50, 100, 0},
-        {50, 0, 30, 200},
-        {100, 30, 0, 20},
-        {0, 200, 20, 0},
-    };
-
-    for (int x : djikstra(graph, 0))
-    {
-        cout << x << " ";
-    }
-
-    return 0;
+	cout<<g.djikstras(0,4)<<nline;
+	return 0;	
 }
