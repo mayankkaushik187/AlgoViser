@@ -1,44 +1,59 @@
 #include <bits/stdc++.h>
+
 using namespace std;
-#define V 4
 
-int primMST(int graph[V][V])
-{
+template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
+template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
+void dbg_out() { cerr << endl; }
+template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; dbg_out(T...); }
+#ifdef LOCAL
+#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+#else
+#define dbg(...)
+#endif
 
-    int key[V];
-    int res = 0;
-    fill(key, key + V, INT_MAX);
-    bool mSet[V];
-    key[0] = 0;
+#define ar array
+#define ll long long
+#define ld long double
+#define sza(x) ((int)x.size())
+#define all(a) (a).begin(), (a).end()
 
-    for (int count = 0; count < V; count++)
-    {
-        int u = -1;
+const int MAX_N = 1e5 + 5;
+const ll MOD = 1e9 + 7;
+const ll INF = 1e9;
+const ld EPS = 1e-9;
+class Graph{
+	int V;
+	vector<pair<int,int>> *adj;
+	Graph(int V){
+		this->V = V;
+		adj = new vector<pair<int,int>>[V];
+	}
+	void addEdge(int x,int y,int w){
+		adj[x].push_back({w,y});
+		adj[y].push_back({w,x});
+	}
+	int prims_mst(){
+		priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
 
-        for (int i = 0; i < V; i++)
-            if (!mSet[i] && (u == -1 || key[i] < key[u]))
-                u = i;
-        mSet[u] = true;
-        res += key[u];
-
-        for (int v = 0; v < V; v++)
-
-            if (graph[u][v] != 0 && mSet[v] == false)
-                key[v] = min(key[v], graph[u][v]);
-    }
-    return res;
-}
-
-int main()
-{
-    int graph[V][V] = {
-        {0, 5, 8, 0},
-        {5, 0, 10, 15},
-        {8, 10, 0, 20},
-        {0, 15, 20, 0},
-    };
-
-    cout << primMST(graph);
-
-    return 0;
-}
+		vector<bool> visited(V,false);
+		pq.push({0,0});//weight and source
+		visited[0] = true;
+		int ans = 0;
+		while(!pq.empty()){
+			auto curr = pq.top();
+			pq.pop();
+			int weight = curr.first;
+			int toNode = curr.second;
+			if(visited[toNode])continue;
+			ans += weight;
+			visited[toNode] = true;
+			for(auto edge : adj[toNode]){
+				if(!visited[edge.first]){
+					pq.push({edge.second,edge.first});
+				}
+			}
+		}
+		return ans;
+	}
+};
