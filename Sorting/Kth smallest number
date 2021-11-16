@@ -1,0 +1,27 @@
+//Kth smallest Number leetcode 668
+class Solution {
+public:
+    int findCountLessThan(int mid,int n,int m){
+        int ans = 0;
+        for(int i = 1; i <= m ; i++){
+            ans += min(n,mid/i);
+        }
+        return ans;
+    }
+    int findKthNumber(int m, int n, int k) {
+        int i = 1;
+        int j = m*n;
+        int ans = -1;
+        while(i <= j){
+            int mid = i + (j - i)/2;
+            //cout<<mid;
+            if(findCountLessThan(mid,n,m) < k){
+                i = mid + 1;
+            }else{
+                ans = mid;
+                j = mid - 1;
+            }
+        }
+        return ans;
+    }
+};
