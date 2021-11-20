@@ -29,3 +29,25 @@ int knapsack(int w[], int val[], int n, int W)
 
     return dp[n][W];
 }
+
+//memo
+int memo(int wt[],int val[],int n,int w,int i,int **dp){
+	if(i < 0)return 0;
+	//memoize
+	if(dp[i][w] != -1)return dp[i][w];
+
+	if(wt[i] > w){
+		dp[i][w] = memo(wt,val,n,w,i - 1);
+	}else{
+		dp[i][w] = max(val[i] + memo(wt,val,n,w - wt[i],i-1) , memo(wt,val,n,w,i - 1));
+	}
+	return dp[i][w];
+}
+int knapsack(int val[],int wt[],int n,int w){
+    int ** dp = new int*[n];
+    for(int i = 0 ; i < n ; i++){
+        dp[i] = new int[W + 1];
+    }
+    memset(dp, -1, sizeof dp);
+    return memo(wt,val,n,w,n-1,dp);
+}
