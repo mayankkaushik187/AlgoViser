@@ -34,20 +34,20 @@ Node *delNode(Node *root, int x)
         if (root->left == NULL)
         {
             Node *temp = root->right;
-            delete root;
+            delete root;//free
             return temp;
         }
         else if (root->right == NULL)
         {
             Node *temp = root->left;
-            delete root;
+            delete root;//free
             return temp;
         }
         else
         {
-            Node *succ = getSuccessor(root);
-            root->key = succ->key;
-            root->right = delNode(root->right, succ->key);
+            Node *succ = getSuccessor(root);//find the minimum in right subtree
+            root->key = succ->key;//copy its val in the root 
+            root->right = delNode(root->right, succ->key);//recurr to delete the minimum number in root->right
         }
     }
     return root;
