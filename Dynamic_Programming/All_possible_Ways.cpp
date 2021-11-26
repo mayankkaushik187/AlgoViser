@@ -5,7 +5,7 @@ the number a as the sum of unique integers raise to the power b.
 */
 
 #include <bits/stdc++.h>
-
+//ez
 int allWays(int x, int n, int curr_num = 1, int curr_sum = 0)
 {
     int results = 0;
