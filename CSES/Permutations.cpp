@@ -22,5 +22,5 @@ int32_t main() {
 	freopen("output.txt", "w", stdout);
 #endif
 	solve();
-	return 0;
+	return 0;//lil
 }
