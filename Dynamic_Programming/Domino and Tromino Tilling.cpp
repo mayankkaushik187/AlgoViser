@@ -1,6 +1,6 @@
 class Solution {
 public:
-  Creds : YehudisK Leetcode
+ // Creds : YehudisK Leetcode
   /*
     In any iteration, our empty slots in the board can look in two ways:
 Either it's a full rectangle or it's a rectangle with one more square sticking out.
