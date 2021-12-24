@@ -1,48 +1,25 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-struct Interval
-{
-    int start, end;
+class Solution {
+public:
+    //leetcode 56
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        int n = (int)intervals.size();
+        sort(intervals.begin(),intervals.end(),[&](const vector<int>&a,const vector<int>&b){
+            if(a[0] == b[0])return a[1] < b[1];
+            return a[0] < b[0];  
+        });
+        vector<vector<int>> res;
+        res.push_back({intervals[0][0],intervals[0][1]});
+        for(int i = 1 ; i < n ; i++){
+            int prevStart = res[res.size() - 1][0];
+            int prevEnd = res[res.size() - 1][1];
+            if(intervals[i][0] <= prevEnd){
+                res.pop_back();
+                res.push_back({min(intervals[i][0],prevStart),max(prevEnd,intervals[i][1])});
+            }else{
+                res.push_back({intervals[i][0],intervals[i][1]});
+            }
+        }
+        
+        return res;
+    }
 };
-
-bool myComp(Interval a, Interval b)
-{
-    return a.start < b.start;
-}
-
-void mergeIntervals(Interval arr[], int n)
-{
-
-    sort(arr, arr + n, myComp);
-    int res = 0;
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[res].end >= arr[i].start)
-        {
-            arr[res].end = max(arr[res].end, arr[i].end);
-            arr[res].start = min(arr[res].start, arr[i].start);
-        }
-        else
-        {
-            res++;
-            arr[res] = arr[i];
-        }
-    }
-
-    for (int i = 0; i <= res; i++)
-    {
-        cout << "[ " << arr[i].start << " , " << arr[i].end << " ]";
-    }
-}
-
-//O(N) time complexity solution we can also use vector of vectors to solve this problem instead of making a struct/class
-
-int main()
-{
-    Interval arr[] = {{5, 10}, {3, 15}, {18, 30}, {2, 7}};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    mergeIntervals(arr, n);
-
-    return 0;
-}
