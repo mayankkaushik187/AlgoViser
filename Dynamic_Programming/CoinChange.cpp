@@ -4,7 +4,7 @@ int coinChange(vector < int > & coins, int W) {
   int n = coins.size();
   vector < int > dp(W + 1, W + 1);
   dp[0] = 0;
-
+  //Avoiding REs with uint
   for (unsigned int i = 1; i <= W; i++) {
     for (unsigned int j = 0; j < n; j++) {
       if (coins[j] <= i) {
