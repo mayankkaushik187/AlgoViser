@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int maxDistToClosest(vector<int>& seats) {
+    //here is didnt used the observation that the maxm distance a person can have from two people on its left and right is the middle index of those two seats.
+    int maxDistToClosest(vector<int>& seats) {//ganda solution O(nlogn) time and O(n) space
         vector<int> index;
         for(int i = 0 ; i < int(seats.size()) ; i++){
             if(seats[i]){
@@ -29,10 +30,10 @@ public:
         return maxm;
     }
 };
-//O(1) space
+//O(1) space O(n) time
 class Solution {
 public:
-    int maxDistToClosest(vector<int>& seats) {
+    int maxDistToClosest(vector<int>& seats) {//badhiya waala
         int res = INT_MIN;
         int last = -1;
         int n = seats.size();
