@@ -20,7 +20,7 @@
 #define ff first
 #define ss second
 using namespace std;
-
+//debug
 void __print(int x) {cerr << x;}
 void __print(long x) {cerr << x;}
 void __print(unsigned x) {cerr << x;}
