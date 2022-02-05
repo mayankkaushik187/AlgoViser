@@ -1,4 +1,5 @@
 //Leetcode 15
+//while loops remove the duplicates
 class Solution {
   public:
     vector < vector < int >> threeSum(vector < int > & nums) {
