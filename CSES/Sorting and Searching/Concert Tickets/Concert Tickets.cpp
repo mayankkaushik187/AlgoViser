@@ -104,7 +104,7 @@ int mod_div(int a, int b, int m) {a = a % m; b = b % m; return (mod_mul(a, mminv
 int phin(int n) {int number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n /= 2;} for (int i = 3; i <= sqrt(n); i += 2) {if (n % i == 0) {while (n % i == 0)n /= i; number = (number / i * (i - 1));}} if (n > 1)number = (number / n * (n - 1)) ; return number;} //O(sqrt(N))
 vector<bool> isprime(int n) { vector<bool> sieve(n + 1, true); for (int i = 2 ; i * i <= n ; i++) { if (sieve[i]) { for (int j = 2 * i ; j <= n ; j += i) { sieve[j] = false; } } } return sieve; }
 /*--------------------------------------------------------------------------------------------------------------------------*/
- 
+ //
 void solve() {
 	int n,m;
 	cin >> n >> m;
