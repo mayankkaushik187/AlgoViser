@@ -1,7 +1,8 @@
 class Solution {
 public:
     int minimumDeviation(vector<int>& nums) {
-        priority_queue<int> pq;
+        priority_queue<int> pq;//maxheap
+        
         int maxm = INT_MIN;
         int minm = INT_MAX;
         for(int i = 0 ; i < int(nums.size()) ; i++){
