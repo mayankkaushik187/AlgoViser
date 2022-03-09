@@ -2,7 +2,7 @@
 Given two integers a and b. You need to find and 
 return the count of possible ways in which we can represent 
 the number a as the sum of unique integers raise to the power b.
-*///dasdasd
+sd*/
 
 #include <bits/stdc++.h>
 //ez
