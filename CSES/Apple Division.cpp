@@ -127,7 +127,7 @@ void solve() {
 }
  
  
- 
+ //lol
  
 int32_t main() {
 #ifndef ONLINE_JUDGE
