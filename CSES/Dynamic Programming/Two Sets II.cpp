@@ -114,6 +114,9 @@ void solve() {
 		cout << 0 << nline;
 		return;
 	}
+	/*
+	dp[i][j] -> the number of ways to make sets of sum j when using first i natural elements
+	*/
 	dp[0][0] = 1;
 	for (int i = 1 ; i <= n ; i++) {
 		for (int j = 0 ; j <= val ; j++) {
